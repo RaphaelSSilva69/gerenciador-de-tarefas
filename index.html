@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Meu Gerenciador de Tarefas</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Minhas Tarefas</h1>
+
+        <div class="progress-container">
+            <div id="progressBar">0%</div>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="taskTitle" placeholder="Título da tarefa...">
+            <textarea id="taskDesc" placeholder="Observações/Descrição..."></textarea>
+            
+            <div class="row">
+                <input type="date" id="taskDate">
+                <div class="file-upload-wrapper">
+                    <label for="taskFile" class="custom-file-upload">
+                        <span>📁 Anexar Arquivo</span>
+                    </label>
+                    <input type="file" id="taskFile" onchange="updateFileName()">
+                    <span id="fileNameDisplay">Nenhum arquivo...</span>
+                </div>
+            </div>
+
+            <button onclick="addTask()">Adicionar Tarefa</button>
+        </div>
+
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Buscar tarefa..." onkeyup="searchTasks()">
+            <button onclick="sortByDate()" class="btn-secondary">Ordenar por Prazo</button>
+        </div>
+
+        <ul id="taskList">
+            </ul>
+
+        <hr class="divider">
+
+        <div id="historyContainer">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>Histórico (Concluídas)</h2>
+                <button onclick="clearHistory()" class="btn-clear">Limpar Histórico</button>
+                </div>
+                <ul id="historyList"></ul>
+        </div>
+
+        <footer class="about-me">
+        <div class="profile-header">
+            <div>
+                <p>Desenvolvido por <strong>Raphael Sousa</strong></p>
+                <small>Estudante de Programação</small>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="www.linkedin.com/in/josé-raphael-372777345" target="_blank">LinkedIn</a>
+            <a href="https://github.com/RaphaelSSilva69" target="_blank">GitHub</a>
+        </div>
+    </footer>
+
+        
+    </div>
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
